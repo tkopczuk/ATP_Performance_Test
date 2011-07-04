@@ -1,4 +1,5 @@
 # Custom settings
+import os
 
 ACCOUNT_ACTIVATION_DAYS = 0
 AUTH_PROFILE_MODULE = "profiles.models.TuitterUserProfile"
@@ -112,7 +113,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'ATP_Performance_Test.urls'
 
-TEMPLATE_DIRS = ('/Users/tk/Documents/Devel/ATP_Performance_Test/templates',)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates/'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
