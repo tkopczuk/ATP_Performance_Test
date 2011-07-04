@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from pagination.paginator import InfinitePaginator
 
-from tuitter.models import Tuit
+from ATP_Performance_Test.tuitter.models import Tuit
 
 def index(request):
     recent_tuits = InfinitePaginator(Tuit.objects.all(), 10).page(request.page)

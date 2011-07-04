@@ -5,14 +5,14 @@
     {% if recent_tuits.object_list %}
          <ul>
             {% for tuit in recent_tuits.object_list %}
-                <li>{{ tuit.status }} by <a href="{% url user_profile_show tuit.user.id %}">{{ tuit.user.username }}</a> at {{ tuit.added }}</li>
+                <li>{{ tuit.status }} by <a class="user_link" href="{% url user_profile_show tuit.user.id %}">{{ tuit.user.username }}</a> at {{ tuit.added }}</li>
             {% endfor %}
         </ul>
         {% if recent_tuits.has_previous %}
             <a href="?page={{ recent_tuits.previous_page_number }}" class="prev">&lsaquo;&lsaquo; newer</a>
         {% endif %}
         {% if recent_tuits.has_next %}
-            <a href="?page={{ recent_tuits.previous_page_number }}" class="next">older &rsaquo;&rsaquo;</a>
+            <a href="?page={{ recent_tuits.next_page_number }}" class="next">older &rsaquo;&rsaquo;</a>
         {% endif %}
     {% else %}
         <p>No recent Tuits.</p>

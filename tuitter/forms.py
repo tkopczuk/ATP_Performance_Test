@@ -1,6 +1,6 @@
 from django.forms import models
 
-from tuitter.models import Tuit
+from ATP_Performance_Test.tuitter.models import Tuit
 
 class AddTuitForm(models.ModelForm):
     class Meta:

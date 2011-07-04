@@ -3,9 +3,9 @@ from django.core.urlresolvers import reverse
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from tuitter.forms import AddTuitForm
 
-from tuitter.models import Tuit
+from ATP_Performance_Test.tuitter.forms import AddTuitForm
+from ATP_Performance_Test.tuitter.models import Tuit
 
 @login_required
 def add(request):

@@ -14,8 +14,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    (r'^tuit/', include('tuitter.urls')),
+    (r'^tuit/', include('ATP_Performance_Test.tuitter.urls')),
     (r'^accounts/', include('registration.urls')),
-    (r'^accounts/', include('profiles.urls')),
-    (r'^$', 'misc.views.index', {}, 'index'),
+    (r'^accounts/', include('ATP_Performance_Test.profiles.urls')),
+    (r'^$', 'ATP_Performance_Test.misc.views.index', {}, 'index'),
 )

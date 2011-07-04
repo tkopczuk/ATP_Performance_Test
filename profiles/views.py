@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from pagination.paginator import InfinitePaginator
 
-from tuitter.models import Tuit
+from ATP_Performance_Test.tuitter.models import Tuit
 
 def show(request, id):
     try:

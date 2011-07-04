@@ -15,7 +15,7 @@
             <a href="?page={{ recent_tuits.previous_page_number }}" class="prev">&lsaquo;&lsaquo; newer</a>
         {% endif %}
         {% if recent_tuits.has_next %}
-            <a href="?page={{ recent_tuits.previous_page_number }}" class="next">older &rsaquo;&rsaquo;</a>
+            <a href="?page={{ recent_tuits.next_page_number }}" class="next">older &rsaquo;&rsaquo;</a>
         {% endif %}
     {% else %}
         <p>No recent Tuits.</p>
