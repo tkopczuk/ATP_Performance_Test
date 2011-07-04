@@ -3,3 +3,5 @@ local_settings.py
 
 local_venv
 .idea
+log
+logs
