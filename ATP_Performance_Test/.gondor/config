@@ -4,7 +4,7 @@ vcs = git
 
 [app]
 ; this path is relative to your project root (the directory .gondor is in)
-requirements_file = requirements
+requirements_file = ../requirements.txt
 
 ; this is a Python path and the default value maps to deploy/wsgi.py on disk
 wsgi_entry_point = ATP_Performance_Test_wsgi
