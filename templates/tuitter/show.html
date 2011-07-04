@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Tuit by <a href="{% url user_profile_show tuit.user.id %}">{{ tuit.user.username }}</a></h2>
+    <h6>at {{ tuit.added }}</h6>
+
+    <p>{{ tuit.status }}</p>
+{% endblock %}

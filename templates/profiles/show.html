@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ shown_user.username }}</h2>
+    <h6>joined at {{ shown_user.date_joined }}</h6>
+
+   <h2>Recent Tuits by {{ shown_user.username }}</h2>
+    {% if recent_tuits.object_list %}
+         <ul>
+            {% for tuit in recent_tuits.object_list %}
+                <li>{{ tuit.status }} at {{ tuit.added }}</li>
+            {% endfor %}
+        </ul>
+        {% if recent_tuits.has_previous %}
+            <a href="?page={{ recent_tuits.previous_page_number }}" class="prev">&lsaquo;&lsaquo; newer</a>
+        {% endif %}
+        {% if recent_tuits.has_next %}
+            <a href="?page={{ recent_tuits.previous_page_number }}" class="next">older &rsaquo;&rsaquo;</a>
+        {% endif %}
+    {% else %}
+        <p>No recent Tuits.</p>
+    {% endif %}
+{% endblock %}

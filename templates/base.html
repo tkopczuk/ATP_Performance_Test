@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>{% block title %}User test{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+        {% block header %}
+	<a href="{% url index %}">Home</a> | 
+
+	{% if user.is_authenticated %}
+	Logged in: {{ user.username }}
+	(<a href="{% url auth_logout %}">Log out</a> | 
+	<a href="{% url auth_password_change %}">Change password</a>)
+	{% else %}
+	<a href="{% url auth_login %}">Log in</a>
+	{% endif %}
+	<hr />
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+        {% block footer %}
+        <hr />
+        {% endblock %}
+    </div>
+</body>
+
+</html>
