@@ -29,7 +29,7 @@ DATABASES = {
     }
 }
 
-if os.environ["ATP_HOST"] == "DOTCLOUD":
+if os.environ.get("ATP_HOST", "") == "DOTCLOUD":
     DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.postgresql_psycopg2',
