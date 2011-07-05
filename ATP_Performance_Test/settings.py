@@ -9,7 +9,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Django settings for ATP_Performance_Test project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
