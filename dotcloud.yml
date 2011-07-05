@@ -1,5 +1,4 @@
 www:
-  approot: ATP_Performance_Test
   type: python
 db:
   type: postgresql
