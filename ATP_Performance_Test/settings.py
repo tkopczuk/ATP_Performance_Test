@@ -29,6 +29,18 @@ DATABASES = {
     }
 }
 
+if os.environ["ATP_HOST"] == "DOTCLOUD":
+    DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'ATP_Performance_Test',
+          'USER': 'ATP_Performance_Test',
+          'PASSWORD': 'ATP_Performance_Test',
+          'HOST': '9c33d168.dotcloud.com',
+          'PORT': '10312',
+      }
+    }
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
