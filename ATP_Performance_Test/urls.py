@@ -17,6 +17,6 @@ urlpatterns = patterns('',
     (r'^tuit/', include('ATP_Performance_Test.tuitter.urls')),
     (r'^accounts/', include('registration.urls')),
     (r'^accounts/', include('ATP_Performance_Test.profiles.urls')),
-    (r'^mu-(.*)$', 'ATP_Performance_Test.misc.views.return_42', {}, '42'),
+    (r'^mu-.*$', 'ATP_Performance_Test.misc.views.return_42', {}, '42'),
     (r'^$', 'ATP_Performance_Test.misc.views.index', {}, 'index'),
 )
