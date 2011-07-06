@@ -1,4 +1,5 @@
-from django.conf.urls.defaults import patterns, include
+#from django.conf.urls.defaults import patterns, include
+from coffin.conf.urls.defaults import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -15,7 +16,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),	
     (r'^tuit/', include('ATP_Performance_Test.tuitter.urls')),
-    (r'^accounts/', include('registration.urls')),
+    (r'^accounts/', include('ATP_Performance_Test.ext.django_registration.registration.urls')),
     (r'^accounts/', include('ATP_Performance_Test.profiles.urls')),
     (r'^mu-.*$', 'ATP_Performance_Test.misc.views.return_42', {}, '42'),
     (r'^$', 'ATP_Performance_Test.misc.views.index', {}, 'index'),

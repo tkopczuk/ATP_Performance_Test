@@ -10,7 +10,7 @@ setup_environ(ATP_Performance_Test.settings)
 
 from django.contrib.auth.models import User
 from django.db import transaction
-from registration.models import RegistrationProfile
+from ATP_Performance_Test.ext.django_registration.registration.models import RegistrationProfile
 
 def print_progress(cnt, total):
     if not cnt % 100:

@@ -24,7 +24,7 @@ def add(request):
 
 def show(request, id):
     try:
-        tuit = Tuit.objects.get(pk=int(id))
+        tuit = Tuit.objects.select_related('user').get(pk=int(id))
     except Tuit.DoesNotExist, ValueError:
         raise Http404
 

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-from registration.signals import user_registered
-from registration.models import RegistrationProfile
+from ATP_Performance_Test.ext.django_registration.registration.signals import user_registered
+from ATP_Performance_Test.ext.django_registration.registration.models import RegistrationProfile
 
 class TuitterUserProfile(models.Model):
     """

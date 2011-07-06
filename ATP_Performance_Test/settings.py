@@ -9,7 +9,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Django settings for ATP_Performance_Test project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -25,7 +25,12 @@ DATABASES = {
         'USER': 'ATP_performance_test',                      # Not used with sqlite3.
         'PASSWORD': 'ATP_performance_test',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+#        'PORT': '9999',                     # Default pgpool
+#        'PORT': '5432',                     # Default PostgreSQL
+        'PORT': '6432',                      # Default pgBouncer
+        'OPTIONS': {
+            'autocommit': True,
+        }
     }
 }
 
@@ -114,6 +119,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+	'ATP_Performance_Test.misc.middleware.InstrumentMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
@@ -135,7 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'registration',
+    'ATP_Performance_Test.ext.django_registration.registration',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

@@ -7,3 +7,6 @@ local_venv
 log
 logs
 src
+.hg
+locale
+docs
