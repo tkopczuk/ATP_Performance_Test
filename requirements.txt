@@ -4,3 +4,4 @@ Jinja2==2.5.5
 MarkupSafe==0.12
 django-pagination==1.0.7
 psycopg2==2.4.2
+gunicorn
