@@ -25,12 +25,12 @@ DATABASES = {
         'USER': 'atp_performance_test',                      # Not used with sqlite3.
         'PASSWORD': 'atp_performance_test',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-#        'PORT': '9999',                     # Default pgpool
-#        'PORT': '5432',                     # Default PostgreSQL
-        'PORT': '6432',                      # Default pgBouncer
-        'OPTIONS': {
-            'autocommit': True,
-        }
+#        'PORT': '5433',                     # Default pgpool
+        'PORT': '5432',                     # Default PostgreSQL
+#        'PORT': '6432',                      # Default pgBouncer
+#        'OPTIONS': {
+#            'autocommit': True,			 # Uncomment if on PostgreSQL 9.0, even more performance boost! Beware, it will not wrap every request in transaction by default.
+#        }
     }
 }
 
