@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     (r'^accounts/', include('ATP_Performance_Test.profiles.urls')),
     (r'^mu-.*$', 'ATP_Performance_Test.misc.views.return_42', {}, '42'),
     (r'^$', 'ATP_Performance_Test.misc.views.index', {}, 'index'),
+    (r'^jinja2/$', 'ATP_Performance_Test.misc.views.index_jinja2', {}, 'index_jinja2'),
 )
