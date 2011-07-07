@@ -21,9 +21,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ATP_performance_test',  # Or path to database file if using sqlite3.
-        'USER': 'ATP_performance_test',                      # Not used with sqlite3.
-        'PASSWORD': 'ATP_performance_test',                  # Not used with sqlite3.
+        'NAME': 'atp_performance_test',  # Or path to database file if using sqlite3.
+        'USER': 'atp_performance_test',                      # Not used with sqlite3.
+        'PASSWORD': 'atp_performance_test',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
 #        'PORT': '9999',                     # Default pgpool
 #        'PORT': '5432',                     # Default PostgreSQL
