@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt-get install libevent
+apt-get install libevent-dev
 cd /tmp
 wget http://pgfoundry.org/frs/download.php/3085/pgbouncer-1.4.2.tgz
 tar xzf pgbouncer-1.4.2.tgz 
