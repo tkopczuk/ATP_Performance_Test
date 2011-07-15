@@ -16,19 +16,25 @@ def print_progress(cnt, total):
     if not cnt % 100:
         print "%.2f%% done" % (cnt*100./total)
 
-normal_count = 1000
-creators_count = 1000
+normal_count = 200
+creators_count = 200
 
 cnt = 0
 
 with transaction.commit_on_success():
     for i in xrange(normal_count):
         cnt += 1
-        RegistrationProfile.objects.create_inactive_user('nu_%d' % i, 'nu_%d@askthepony.com' % i, 'nu_%d' % i, None)
+        try:
+            RegistrationProfile.objects.create_inactive_user('nu_%d' % i, 'nu_%d@askthepony.com' % i, 'nu_%d' % i, None)
+        except:
+            pass
         print_progress(cnt, normal_count+creators_count)
     for i in xrange(creators_count):
         cnt += 1
-        RegistrationProfile.objects.create_inactive_user('cc_%d' % i, 'cc_%d@askthepony.com' % i, 'cc_%d' % i, None)
+        try:
+            RegistrationProfile.objects.create_inactive_user('cc_%d' % i, 'cc_%d@askthepony.com' % i, 'cc_%d' % i, None)
+        except:
+            pass
         print_progress(cnt, normal_count+creators_count)
 
 print "Activating all the accounts..."
