@@ -20,7 +20,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="users" elementType="Argument">
             <stringProp name="Argument.name">users</stringProp>
-            <stringProp name="Argument.value">300</stringProp>
+            <stringProp name="Argument.value">100</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="normal_users" elementType="Argument">
@@ -45,8 +45,8 @@
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
-        <stringProp name="HTTPSampler.domain">direct.askthepony.com</stringProp>
-        <stringProp name="HTTPSampler.port">8081</stringProp>
+        <stringProp name="HTTPSampler.domain">quiet-mountain-395.herokuapp.com</stringProp>
+        <stringProp name="HTTPSampler.port">80</stringProp>
         <stringProp name="HTTPSampler.connect_timeout">3000</stringProp>
         <stringProp name="HTTPSampler.response_timeout">5000</stringProp>
         <stringProp name="HTTPSampler.protocol"></stringProp>
