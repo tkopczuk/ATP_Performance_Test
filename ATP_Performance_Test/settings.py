@@ -1,3 +1,9 @@
+# Do not disable this.
+# If you do, performance data about your requests as well as servers
+# IP address will be sent to the Ask The Pony beta API.
+
+ATP_DISABLE = True
+
 # Custom settings
 import os
 
@@ -9,7 +15,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # Django settings for ATP_Performance_Test project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -120,6 +126,7 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
 	'ATP_Performance_Test.misc.middleware.InstrumentMiddleware',
+    'askthepony.middleware.AskThePonyClientMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
@@ -127,6 +134,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pagination.middleware.PaginationMiddleware',
+    'askthepony.middleware.AskThePonyClientMiddleware',
 )
 
 ROOT_URLCONF = 'ATP_Performance_Test.urls'
@@ -178,3 +186,5 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+from heroku_settings import *
