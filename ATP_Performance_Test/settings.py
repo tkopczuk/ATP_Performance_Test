@@ -188,3 +188,6 @@ except ImportError:
     pass
 
 from heroku_settings import *
+
+import os
+os.environ["DATABASE_URL"] = "postgres://atp_performance_test:atp_performance_test@ec2-184-73-142-75.compute-1.amazonaws.com/atp_performance_test"
