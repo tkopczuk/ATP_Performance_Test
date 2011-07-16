@@ -186,5 +186,3 @@ try:
     from local_settings import *
 except ImportError:
     pass
-
-from heroku_settings import *
