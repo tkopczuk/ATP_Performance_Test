@@ -37,10 +37,9 @@ def heatCPU(request):
     ts = time.time()
     G = nx.generators.classic.complete_graph(300)
     nx.algorithms.centrality.closeness_centrality(G)
-    nx.algorithms.centrality.betweenness_centrality(G)
     te = time.time()
     
-    return HttpResponse("HeatCPU() time %.3f" % te-ts)
+    return HttpResponse("HeatCPU() time %.3f seconds" % (te-ts))
 
 
 
