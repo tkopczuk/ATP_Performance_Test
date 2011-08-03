@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
+import networkx as nx
+import time
 
 from ATP_Performance_Test.tuitter.forms import AddTuitForm
 from ATP_Performance_Test.tuitter.models import Tuit
@@ -29,3 +31,16 @@ def show(request, id):
         raise Http404
 
     return render_to_response("tuitter/show.html", {"tuit": tuit}, context_instance=RequestContext(request))
+
+def heatCPU(request):
+    # simple example graph
+    ts = time.time()
+    G = nx.generators.classic.complete_graph(300)
+    nx.algorithms.centrality.closeness_centrality(G)
+    nx.algorithms.centrality.betweenness_centrality(G)
+    te = time.time()
+    
+    return HttpResponse("HeatCPU() time %.3f" % te-ts)
+
+
+

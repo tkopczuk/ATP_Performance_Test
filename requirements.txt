@@ -6,3 +6,4 @@ django-pagination==1.0.7
 psycopg2==2.4.2
 gunicorn
 jsonlib
+networkx
