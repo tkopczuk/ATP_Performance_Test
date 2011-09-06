@@ -74,7 +74,7 @@ class MeasureIt(object):
 #    addCacheHit = staticmethod(addCacheHit)
 
     def addPageHit(time, path, view, get, response, pre_mw_time, view_time, post_mw_time, db_queries_time, db_routines_time):
-        MeasureIt.queue.put([time, path, view[0], view[1], get, response, float(pre_mw_time), float(view_time), float(post_mw_time), float(db_queries_time), float(db_routines_time), socket.gethostname()])
+        MeasureIt.queue.put([time, path, view[0], view[1], get, response, float(pre_mw_time), float(view_time), float(post_mw_time), float(db_queries_time), float(db_routines_time), socket.getfqdn()])
         MeasureIt.sendOutIfFull()
     addPageHit = staticmethod(addPageHit)
 

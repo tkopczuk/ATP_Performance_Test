@@ -10,3 +10,7 @@ src
 .hg
 locale
 docs
+
+lib/
+bin/
+include/
