@@ -1,0 +1,9 @@
+Django==1.3
+Coffin==0.3.5
+Jinja2==2.5.5
+MarkupSafe==0.12
+django-pagination==1.0.7
+psycopg2==2.4.2
+gunicorn
+jsonlib
+networkx

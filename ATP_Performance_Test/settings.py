@@ -2,7 +2,7 @@
 # If you do, performance data about your requests as well as servers
 # IP address will be sent to the Ask The Pony beta API.
 
-ATP_DISABLE = True
+ATP_DISABLE = False
 
 # Custom settings
 import os
@@ -51,6 +51,29 @@ if os.environ.get("ATP_HOST", "") == "DOTCLOUD":
           'PORT': '10312',
       }
     }
+    MIDDLEWARE_CLASSES = (
+    'ATP_Performance_Test.askthepony.middleware.AskThePonyClientMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
+    'ATP_Performance_Test.askthepony.middleware.AskThePonyClientMiddleware',
+    )
+else:
+    MIDDLEWARE_CLASSES = (
+    'askthepony.middleware.AskThePonyClientMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
+    'askthepony.middleware.AskThePonyClientMiddleware',
+)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -124,19 +147,6 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
-	'ATP_Performance_Test.misc.middleware.InstrumentMiddleware',
-    'askthepony.middleware.AskThePonyClientMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'pagination.middleware.PaginationMiddleware',
-    'askthepony.middleware.AskThePonyClientMiddleware',
-)
-
 ROOT_URLCONF = 'ATP_Performance_Test.urls'
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -181,6 +191,10 @@ LOGGING = {
         },
     }
 }
+
+ATP_UDP_IP = "85.222.100.189"
+ATP_UDP_PORT = 8888
+ATP_API_KEY = "AskThePony"
 
 try:
     from local_settings import *

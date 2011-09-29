@@ -12,8 +12,8 @@ class AskThePonyCursorWrapper(object):
         finally:
             stop = datetime.now()
             duration = stop - start
-            self.atp_wrapper.time_spent_in_db += duration.total_seconds()
-#            print duration, self.atp_wrapper.time_spent_in_db
+            self.atp_wrapper.time_spent_in_db += (duration.microseconds + (duration.seconds + duration.days * 24. * 3600.) * 10.**6) / 10.**6
+         #   print duration, self.atp_wrapper.time_spent_in_db
 
     def executemany(self, sql, param_list):
         start = datetime.now()
@@ -22,8 +22,8 @@ class AskThePonyCursorWrapper(object):
         finally:
             stop = datetime.now()
             duration = stop - start
-            self.atp_wrapper.time_spent_in_db += duration.total_seconds()
- #           print duration, self.atp_wrapper.time_spent_in_db
+            self.atp_wrapper.time_spent_in_db += (duration.microseconds + (duration.seconds + duration.days * 24. * 3600.) * 10.**6) / 10.**6
+          #  print duration, self.atp_wrapper.time_spent_in_db
 
     def __getattr__(self, attr):
         if attr in self.__dict__:

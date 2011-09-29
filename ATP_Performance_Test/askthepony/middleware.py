@@ -25,8 +25,8 @@ import time
 
 from django.db import connections
 
-from askthepony import MeasureIt
-from askthepony.db import AskThePonyCursorWrapper
+from . import MeasureIt
+from .db import AskThePonyCursorWrapper
 
 def get_connections_times():
     db_queries_time, db_time = 0., 0.
@@ -55,7 +55,8 @@ class AskThePony_return_cursor_wrapper(object):
         finally:
             stop = datetime.datetime.now()
             duration = stop - start
-            self.time_spent_in_db_routines += duration.total_seconds()
+            self.time_spent_in_db_routines += (duration.microseconds + (duration.seconds + duration.days * 24. * 3600.) * 10.**6) / 10.**6
+           # print "Master", duration, self.time_spent_in_db_routines
 
     def get_db_time(self):
         return self.time_spent_in_db, self.time_spent_in_db_routines
@@ -108,7 +109,7 @@ class AskThePonyClientMiddleware(object):
                 if s in (300, 301, 302, 307):
                     r += ' => %s' % response.get('Location', '?')
 
-                print "%s, %.2fms, %.2fms (%.2fms in view alone, %.2fms in SQL queries, %.2fms in DB routines), %.2fms"  %(path, request_middleware_time*1000., total_view_time*1000., view_time*1000., db_queries_time*1000., db_time*1000., response_middleware_time*1000.)
+        #        print "%s, %.2fms, %.2fms (%.2fms in view alone, %.2fms in SQL queries, %.2fms in DB routines), %.2fms"  %(path, request_middleware_time*1000., total_view_time*1000., view_time*1000., db_queries_time*1000., db_time*1000., response_middleware_time*1000.)
 
                 MeasureIt.addPageHit(time.time(), path, request._view_func, request.GET, r, request_middleware_time, view_time, response_middleware_time, db_queries_time, db_time)
 

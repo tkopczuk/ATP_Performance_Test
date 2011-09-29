@@ -50,16 +50,16 @@ class MeasureIt(object):
                     item = MeasureIt.queue.get_nowait()
                     item_json = jsonlib.write(item)
                     if len(MeasureIt.to_be_sent) + len(item_json) + 2 > MAX_FRAME and len(MeasureIt.to_be_sent) > 2:
-                        print "Sending..."
+                      #  print "Sending..."
                         MeasureIt.to_be_sent = "%s%s" %(MeasureIt.to_be_sent[:-1], ",\"%s\",%.2f ]" % (API_KEY, time.time()))
                         sock = socket.socket( socket.AF_INET, socket.SOCK_DGRAM ) 
                         sock.sendto( zlib.compress(MeasureIt.to_be_sent), (UDP_IP, UDP_PORT) )
-                        print "sent", MeasureIt.to_be_sent
+                     #   print "sent", MeasureIt.to_be_sent
                         #print len(zlib.compress(MeasureIt.to_be_sent))
                         MeasureIt.to_be_sent = "[ %s," % (item_json,)
                     else:
                         MeasureIt.to_be_sent =  "%s%s," %(MeasureIt.to_be_sent, item_json)
-                    print MeasureIt.to_be_sent
+               #     print MeasureIt.to_be_sent
                     MeasureIt.queue.task_done()
             except:
                 import sys
@@ -74,7 +74,7 @@ class MeasureIt(object):
 #    addCacheHit = staticmethod(addCacheHit)
 
     def addPageHit(time, path, view, get, response, pre_mw_time, view_time, post_mw_time, db_queries_time, db_routines_time):
-        MeasureIt.queue.put([time, path, view[0], view[1], get, response, float(pre_mw_time), float(view_time), float(post_mw_time), float(db_queries_time), float(db_routines_time), socket.getfqdn()])
+        MeasureIt.queue.put([time, path, view[0], view[1], get, response, float(pre_mw_time), float(view_time), float(post_mw_time), float(db_queries_time), float(db_routines_time), socket.gethostname()])
         MeasureIt.sendOutIfFull()
     addPageHit = staticmethod(addPageHit)
 
