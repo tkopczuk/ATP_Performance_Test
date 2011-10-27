@@ -30,7 +30,7 @@ DATABASES = {
         'NAME': 'atp_performance_test',  # Or path to database file if using sqlite3.
         'USER': 'atp_performance_test',                      # Not used with sqlite3.
         'PASSWORD': 'atp_performance_test',                  # Not used with sqlite3.
-        'HOST': 'ec2-50-16-63-26.compute-1.amazonaws.com',                      # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
 #        'PORT': '5433',                     # Default pgpool
 #        'PORT': '5432',                     # Default PostgreSQL
         'PORT': '6432',                      # Default pgBouncer
@@ -39,6 +39,18 @@ DATABASES = {
 #        }
     }
 }
+
+if os.environ.get("EPIO", false) == true:
+    DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+          'NAME': 'ATP_Performance_Test',
+          'USER': 'ATP_Performance_Test',
+          'PASSWORD': 'ATP_Performance_Test',
+          'HOST':os.environ.get("DATABASE_HOST","") ,
+          'PORT': '6432',
+      }
+    }
 
 if os.environ.get("ATP_HOST", "") == "DOTCLOUD":
     DATABASES = {
