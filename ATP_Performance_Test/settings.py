@@ -44,9 +44,9 @@ if os.environ.get("EPIO", "false") == "true":
     DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-          'NAME': 'ATP_Performance_Test',
-          'USER': 'ATP_Performance_Test',
-          'PASSWORD': 'ATP_Performance_Test',
+          'NAME': 'atp_performance_test',
+          'USER': 'atp_performance_test',
+          'PASSWORD': 'atp_performance_test',
           'HOST':os.environ.get("DATABASE_HOST","") ,
           'PORT': '6432',
       }
