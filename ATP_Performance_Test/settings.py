@@ -40,7 +40,7 @@ DATABASES = {
     }
 }
 
-if os.environ.get("EPIO", false) == true:
+if os.environ.get("EPIO", "false") == "true":
     DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.postgresql_psycopg2',
