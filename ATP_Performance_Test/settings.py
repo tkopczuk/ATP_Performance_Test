@@ -170,7 +170,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'ATP_Performance_Test.ext.django_registration.registration',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
